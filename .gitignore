@@ -1,0 +1,27 @@
+.dat*
+.repl_history
+build/
+tags
+resources/*.nib
+resources/*.momd
+resources/*.storyboardc
+
+# Editor files
+.DS_Store
+nbproject
+.redcar
+*.swp
+*.swo
+~
+.eprj
+vendor/Pods
+*.nib
+app/pixate_code.rb
+#*#
+.sass-cache
+.idea
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
