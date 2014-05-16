@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AAF73B719263F8000B9DD9D /* CBLView+CBLViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF73B619263F8000B9DD9D /* CBLView+CBLViewAdditions.m */; };
 		4AF6DAF319228DFC00A17261 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF6DAF219228DFC00A17261 /* Foundation.framework */; };
-		4AF6DAF819228DFC00A17261 /* Blocks.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AF6DAF719228DFC00A17261 /* Blocks.h */; };
-		4AF6DAFA19228DFC00A17261 /* Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF6DAF919228DFC00A17261 /* Blocks.m */; };
 		4AF6DB0119228DFC00A17261 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF6DB0019228DFC00A17261 /* XCTest.framework */; };
 		4AF6DB0219228DFC00A17261 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF6DAF219228DFC00A17261 /* Foundation.framework */; };
 		4AF6DB0719228DFC00A17261 /* libBlocks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF6DAEF19228DFC00A17261 /* libBlocks.a */; };
@@ -40,18 +39,17 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				4AF6DAF819228DFC00A17261 /* Blocks.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4AAF73B519263F8000B9DD9D /* CBLView+CBLViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBLView+CBLViewAdditions.h"; sourceTree = "<group>"; };
+		4AAF73B619263F8000B9DD9D /* CBLView+CBLViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBLView+CBLViewAdditions.m"; sourceTree = "<group>"; };
 		4AF6DAEF19228DFC00A17261 /* libBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF6DAF219228DFC00A17261 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4AF6DAF619228DFC00A17261 /* Blocks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Blocks-Prefix.pch"; sourceTree = "<group>"; };
-		4AF6DAF719228DFC00A17261 /* Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blocks.h; sourceTree = "<group>"; };
-		4AF6DAF919228DFC00A17261 /* Blocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Blocks.m; sourceTree = "<group>"; };
 		4AF6DAFF19228DFC00A17261 /* BlocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF6DB0019228DFC00A17261 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4AF6DB0A19228DFC00A17261 /* BlocksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlocksTests-Info.plist"; sourceTree = "<group>"; };
@@ -130,9 +128,9 @@
 		4AF6DAF419228DFC00A17261 /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				4AF6DAF719228DFC00A17261 /* Blocks.h */,
-				4AF6DAF919228DFC00A17261 /* Blocks.m */,
 				4AF6DAF519228DFC00A17261 /* Supporting Files */,
+				4AAF73B519263F8000B9DD9D /* CBLView+CBLViewAdditions.h */,
+				4AAF73B619263F8000B9DD9D /* CBLView+CBLViewAdditions.m */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -244,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF6DAFA19228DFC00A17261 /* Blocks.m in Sources */,
+				4AAF73B719263F8000B9DD9D /* CBLView+CBLViewAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +431,7 @@
 				4AF6DB1419228DFC00A17261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AF6DB1519228DFC00A17261 /* Build configuration list for PBXNativeTarget "BlocksTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +440,7 @@
 				4AF6DB1719228DFC00A17261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

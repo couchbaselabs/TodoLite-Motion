@@ -11,6 +11,7 @@ class AppDelegate
     @window.makeKeyAndVisible
     @window.rootViewController = @navigation_controller
 
+
     database.modelFactory.registerClass(List.class, forDocumentType:"list")
     database.modelFactory.registerClass(Task.class, forDocumentType:"item")
 
@@ -54,5 +55,4 @@ class AppDelegate
   def sync_manager
     @sync_manager ||= SyncManager.new(database)
   end
-
 end

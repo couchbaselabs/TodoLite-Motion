@@ -5,7 +5,15 @@ class List < Titled
 
   def self.queryListsInDatabase database
     view = database.viewNamed("lists")
-    Blocks.setupListsMapBlockForView(view)
+
+    unless view.hasMapBlock
+      view.setMapBlock(lambda { |doc, emit|
+        if doc["type"] == "list"
+          emit doc["title"], nil
+        end
+      }, reduceBlock: nil, version: "1")
+    end
+
     view.createQuery
   end
 
@@ -31,7 +39,16 @@ class List < Titled
 
   def queryTasks
     view = document.database.viewNamed("tasksByDate")
-    Blocks.setupTasksMapBlockForView(view)
+
+    unless view.hasMapBlock
+      view.setMapBlock(lambda { |doc, emit|
+        if doc["type"] == "list"
+          date = doc["created_at"]
+          list_id = doc["list_id"]
+          emit([list_id, date], nil)
+        end
+      }, reduceBlock: nil, version: "1")
+    end
 
     query = view.createQuery
     query.descending = true

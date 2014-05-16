@@ -3,7 +3,10 @@ class Profile < CBLModel
 
   def self.queryProfilesInDatabase
     view = database.viewNamed("profiles")
-    Blocks.setupProfilesMapBlockForView(view)
+    unless view.hasMapBlock
+      map_block = lambda { |doc, emit| emit(doc["name"], nil) if doc["type"] == "profile" }
+      view.setMapBlock(map_block, reduceBlock: nil, version: "1")
+    end
     view.createQuery
   end
 
