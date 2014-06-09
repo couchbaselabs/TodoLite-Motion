@@ -1,5 +1,5 @@
 class Titled < CBLModel
-  attr_reader :title, :created_at
+  attr_reader :created_at
 
   # abstract needs to be overwritten in the child class
   def self.docType
