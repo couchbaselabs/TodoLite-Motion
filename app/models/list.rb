@@ -1,4 +1,6 @@
 class List < Titled
+  attribute :owner
+
   def self.docType
     "list"
   end
@@ -18,10 +20,6 @@ class List < Titled
       list.owner = owner
       return if !list.save(error)
     end
-  end
-
-  def owner= user
-    self.setValue(user, ofProperty: "owner")
   end
 
   def addTaskWithTitle title

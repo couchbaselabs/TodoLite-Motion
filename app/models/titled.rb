@@ -1,5 +1,6 @@
-class Titled < CBLModel
+class Titled < CBLModelBase
   attr_reader :created_at
+  attribute :title, :created_at
 
   # abstract needs to be overwritten in the child class
   def self.docType
@@ -12,22 +13,6 @@ class Titled < CBLModel
     self.title = title
     self.created_at = NSDate.date
     self
-  end
-
-  def title
-    getValueOfProperty "title"
-  end
-
-  def title= new_title
-    self.setValue(new_title, ofProperty: "title")
-  end
-
-  def created_at= date
-    self.setValue(date, ofProperty: "created_at")
-  end
-
-  def to_s
-    "#{self.class}[#{document.abbreviatedID}, #{title}]"
   end
 end
 
