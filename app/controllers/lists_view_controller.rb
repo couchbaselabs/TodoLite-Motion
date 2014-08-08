@@ -39,8 +39,7 @@ class ListsViewController < UIViewController
     list = List.alloc.initInDatabase(database, withTitle:title)
     list.owner = owner
     error_ptr = Pointer.new(:object)
-    list.save(error_ptr)
-    if error_ptr[0]
+    if !list.save(error_ptr)
       alert = UIAlertView.alloc.initWithTitle("Error", message: "Failed to create new list", delegate: nil, cancelButtonTitle: "Ok", otherButtonTitles: nil)
       alert.show
     else

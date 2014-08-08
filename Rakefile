@@ -2,12 +2,8 @@
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 require 'bubble-wrap'
-
-begin
-  require 'bundler'
-  Bundler.require
-rescue LoadError
-end
+require 'bundler'
+Bundler.require
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
@@ -24,7 +20,7 @@ Motion::Project::App.setup do |app|
   # http://equip9.org/2014/03/06/adding-couchbase-in-a-rubymotion-app.html
   # https://groups.google.com/forum/#!topic/rubymotion/wVqdLWQ5uao
   #
-  app.vendor_project('vendor/Pods/couchbase-lite-ios/CouchbaseLite.framework',
+  app.vendor_project('vendor/Pods/couchbase-lite-ios/couchbase-lite-ios-community-1.0.0/CouchbaseLite.framework',
                      :static,
                      products: ['CouchbaseLite'],
                      headers_dir: 'Headers')
@@ -36,7 +32,7 @@ Motion::Project::App.setup do |app|
                      target: 'Blocks')
 
   app.pods do
-    pod 'couchbase-lite-ios', '~> 1.0-beta3'
+    pod 'couchbase-lite-ios', '~> 1.0.0'
   end
 end
 

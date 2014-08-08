@@ -1,30 +1,45 @@
 class Profile < CBLModel
-  attr_accessor :user_id, :type, :name
 
-  def self.queryProfilesInDatabase
-    view = database.viewNamed("profiles")
-    Blocks.setupProfilesMapBlockForView(view)
-    view.createQuery
+  def self.profile_doc_id user_id
+    "p:#{user_id}"
+  end
+
+  def idForNewDocumentInDatabase database
+    self.class.profile_doc_id @_user_id
   end
 
   def self.profileInDatabase database, forUserID:userID
-    profile_doc_id = "p:#{userID}"
-    doc = database.existingDocumentWithID(profile_doc_id)
-    doc = Profile.modelForDocument(doc)
+    doc = database.existingDocumentWithID(profile_doc_id userID)
+    modelForDocument(doc)
   end
 
   def initCurrentUserProfileInDatabase database, withName:name, andUserID:userID
-    profile_doc_id = "p:#{userID}"
-    doc = database.documentWithID(profile_doc_id)
-    self.initWithDocument doc
+    @_user_id = userID
+    self.initWithNewDocumentInDatabase database
+    self.setValue("profile", ofProperty: "type")
     self.name = name
     self.user_id = userID
-    self.type = "profile"
     self
   end
 
-  def description
-    "#{self.class} [#{document.abbreviatedID} #{self.user_id}]"
+  def name
+    getValueOfProperty "name"
+  end
+
+  def name= name
+    setValue name, ofProperty:"name"
+  end
+
+  def user_id
+    getValueOfProperty "user_id"
+  end
+
+  def user_id= user_id
+    setValue user_id, ofProperty:"user_id"
+  end
+
+  def to_s
+    "#{self.class} [#{document.documentID} #{user_id}]"
   end
 end
 

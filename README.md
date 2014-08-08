@@ -23,7 +23,7 @@ If you have questions or get stuck or just want to say hi, please visit the
 
 1. Clone or download this repository.
 2. Install the gem dependecies via ```bundle install```
-3. Install all the dependencies via ```rake pods:install```
+3. Install all the dependencies via ```bundle exec rake pod:install```
 4. Optionally configure the sync_gateway url in config/sync_gateway.rb
 5. Run it by running ```rake```
 

@@ -16,8 +16,7 @@ class List < Titled
     lists.each do |raw_list|
       list = List.modelForDocument(raw_list.document)
       list.owner = owner
-      list.save(error)
-      return if error
+      return if !list.save(error)
     end
   end
 

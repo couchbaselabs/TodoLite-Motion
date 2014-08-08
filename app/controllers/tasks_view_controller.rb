@@ -38,8 +38,7 @@ class TasksViewController < UIViewController
   def create_task title
     task = current_list.addTaskWithTitle(title)
     error_ptr = Pointer.new(:object)
-    task.save(error_ptr)
-    if error_ptr[0]
+    if !task.save(error_ptr)
       alert = UIAlertView.alloc.initWithTitle("Error",
                                       message: "Failed to create new task",
                                       delegate: nil,
@@ -56,8 +55,7 @@ class TasksViewController < UIViewController
     task = Task.modelForDocument(row.document)
     task.checked = !task.checked
     error_ptr = Pointer.new(:object)
-    task.save(error_ptr)
-    if error_ptr[0]
+    if !task.save(error_ptr)
       alert = UIAlertView.alloc.initWithTitle("Error",
                                       message: "Failed to update task",
                                       delegate: nil,

@@ -13,6 +13,7 @@ class AppDelegate
 
     database.modelFactory.registerClass(List.class, forDocumentType:"list")
     database.modelFactory.registerClass(Task.class, forDocumentType:"item")
+    database.modelFactory.registerClass(Profile.class, forDocumentType:"profile")
 
     login_and_setup_sync
 
@@ -41,7 +42,16 @@ class AppDelegate
   def login_and_setup_sync
     facebook_sync_authenticator.credentials do |user_id, info|
       @lists_view_controller.user_id = user_id
-      profile = Profile.alloc.initCurrentUserProfileInDatabase @database, withName:info["username"], andUserID:user_id
+
+      Dispatch::Queue.main.sync do
+        profile = Profile.alloc.initCurrentUserProfileInDatabase @database, withName:info["username"], andUserID:user_id
+        error_ptr = Pointer.new(:object)
+        if !profile.save(error_ptr)
+          alert = UIAlertView.alloc.initWithTitle("Error", message: "Failed to save profile", delegate: nil, cancelButtonTitle: "Ok", otherButtonTitles: nil)
+          alert.show
+        end
+      end
+
       sync_manager.authenticator = facebook_sync_authenticator
       sync_manager.start_replication
     end
