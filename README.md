@@ -22,9 +22,10 @@ If you have questions or get stuck or just want to say hi, please visit the
 [Mobile Couchbase group][LIST] on Google Groups, or open an Issue.
 
 1. Clone or download this repository.
-2. Install all the dependencies via ```rake pods:install```
-3. Optionally configure the sync_gateway url in config/sync_gateway.rb
-4. Run it by running ```rake```
+2. Install the gem dependecies via ```bundle install```
+3. Install all the dependencies via ```rake pods:install```
+4. Optionally configure the sync_gateway url in config/sync_gateway.rb
+5. Run it by running ```rake```
 
 That's it! Now that you're set up, you can just use the Run command again after
 making changes to the demo code.
