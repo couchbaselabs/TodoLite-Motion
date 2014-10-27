@@ -3,7 +3,7 @@
   "facebook": { "register": true },
   "databases": {
     "todos": {
-      "server": "http://localhost:8091",
+      "server": "walrus:",
       "users": {
         "GUEST": {"disabled": true}
       },
