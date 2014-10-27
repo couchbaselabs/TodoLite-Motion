@@ -36,10 +36,11 @@ services:sync_gateway```
 
 ## Caveats
 
-Do to a bug in RubyMotion it is currently not possible to use ruby lambdas as
+~~Do to a bug in RubyMotion it is currently not possible to use ruby lambdas as
 blocks for the query functions, so they need to be setup via Objective-C code
 nativly. This has been worked around by including a simple Blocks xcode project
-which includes the functions to setup the MapBlocks.
+which includes the functions to setup the MapBlocks.~~ UPDATE: this has been 
+fixed and it is now possible to go "ruby only"!
 
 Currently this project is a pretty straight port of the TodoLite-iOS project,
 and does not feel really ruby like, so look forward to new things to come in
