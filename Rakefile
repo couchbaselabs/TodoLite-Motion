@@ -20,19 +20,15 @@ Motion::Project::App.setup do |app|
   # http://equip9.org/2014/03/06/adding-couchbase-in-a-rubymotion-app.html
   # https://groups.google.com/forum/#!topic/rubymotion/wVqdLWQ5uao
   #
-  app.vendor_project('vendor/Pods/couchbase-lite-ios/couchbase-lite-ios-community-1.0.0/CouchbaseLite.framework',
+  app.vendor_project('vendor/Pods/couchbase-lite-ios/CouchbaseLite.framework',
                      :static,
                      products: ['CouchbaseLite'],
                      headers_dir: 'Headers')
 
-  # since lambdas are not copyable like objective c blocks are, we need to actually create objective c once
-  # and embed them in the project to provide them as map and reduce to our couchbase lite queries
-  app.vendor_project('vendor/Blocks',
-                     :xcode,
-                     target: 'Blocks')
+  app.codesign_certificate = 'iPhone Developer: Philipp Fehre (6W7Y595HZQ)'
 
   app.pods do
-    pod 'couchbase-lite-ios', '~> 1.0.0'
+    pod 'couchbase-lite-ios', '~> 1.0'
   end
 end
 

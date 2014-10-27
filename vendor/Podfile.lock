@@ -1,10 +1,10 @@
 PODS:
-  - couchbase-lite-ios (1.0.0)
+  - couchbase-lite-ios (1.0.3)
 
 DEPENDENCIES:
-  - couchbase-lite-ios (~> 1.0.0)
+  - couchbase-lite-ios (~> 1.0)
 
 SPEC CHECKSUMS:
-  couchbase-lite-ios: 8850648a4ea4ea0c96fd2c34305fe21c870929b4
+  couchbase-lite-ios: e74fa35bdbf00e75352131cac243c02f086f3518
 
 COCOAPODS: 0.33.1
