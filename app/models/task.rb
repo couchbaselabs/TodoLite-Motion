@@ -1,5 +1,4 @@
 class Task < Titled
-  attr_reader :list_id
   attribute :checked, :list_id
 
   def self.docType
